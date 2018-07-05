@@ -29,6 +29,9 @@ load data infile '/home/mysql/film_test.txt' into table film_test2
 alter table film_test2 enable keys
 
 
+coalesce 函数： 返回列表中的第一个非空表达式  coalesce(expression, expression[,...])
+如果所有的参数均为NULL， 则返回NULL
+
 char 列的场电影固定为创建表时声明的长度，长度可以为0-255的任何值
 varchar 列中的值为可变长字符串，长度可以指定为0-65535之间的值
 检索时，char 列删除尾部的空格，varchar 列保留空格
@@ -65,6 +68,10 @@ Cross Join  不使用连接条件来限制结果集合，而是将分别来自�
 INNER JOIN 两边表同时有对应的数据，即任何一边缺失数据就不显示。  //全部都是对应指定列
 LEFT JOIN 会读取左边数据表的全部数据，即便右边表无对应数据。//左边的全保留，右边有对应的加上，没有的NULL/default
 RIGHT JOIN 会读取右边数据表的全部数据，即便左边表无对应数据。//右边指定的的全保留，左边指定的没有就NULL/default
+
+
+left join 和 left outer join 的区别及详细讲解见 stackoverflow 贴
+https://stackoverflow.com/questions/406294/left-join-vs-left-outer-join-in-sql-server
 
 ----------------------------------------------------------------------------------------------------------------------------------------------------------------------------
 join过程可以这样理解：首先两个表做一个笛卡尔积，on后面的条件是对这个笛卡尔积做一个过滤形成一张临时表，如果没有where就直接返回结果，如果有where就对上一步的临时表再进行过滤。
